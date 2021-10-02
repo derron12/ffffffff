@@ -4,13 +4,13 @@ $PSDefaultParameterValues['Stop-Process:ErrorAction'] = 'SilentlyContinue'
 write-host @'
 ***************** 
 derron:
-Als je dit leakt je kanker moeder
+Credits naar mij als je dit steelt je moeder
 ***************** 
 '@
 
 write-host @'
 ***************** 
-Credits naar: @derron#0069
+Simpel gebruik, als je dit niet snapt ben je breinloos!
 ***************** 
 '@
 
@@ -212,7 +212,7 @@ Write-Host 'Klaar!!!'
 write-host @'
 ***************** 
 @derron:
-Nogmaals je kanker moeder als je dit leakt
+ok
 ***************** 
 '@
 
