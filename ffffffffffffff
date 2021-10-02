@@ -145,7 +145,7 @@ $uipat = "$PWD\xpui.spa"
 #>
 Copy-Item -LiteralPath $patchFiles -Destination "$SpotifyDirectory"
 <#
-$ch = Read-Host -Prompt "Optional - Upgrade button verwijderen. (Y/N) "
+$ch = Read-Host -Prompt "Optioneel - Upgrade button verwijderen. (Y/N) "
 if ($ch -eq 'y'){
     move $SpotifyApps\zlink.spa $SpotifyApps\zlink.spa.bak >$null 2>&1
     Copy-Item -LiteralPath $remup -Destination "$SpotifyApps"
@@ -155,7 +155,7 @@ Verwijderd niet upgrade button.
 '@`n
 }
 
-$ch = Read-Host -Prompt "Change Alpha UI back to Old UI. (BTS only supports Old UI). (Y/N) "
+$ch = Read-Host -Prompt "Verander Alpha UI terug naar Old UI. (BTS Accepteerd alleen Old UI). (Y/N) "
 if ($ch -eq 'y'){
     move $SpotifyApps\xpui.spa $SpotifyApps\xpui.spa.bak >$null 2>&1
     Copy-Item -LiteralPath $uipat -Destination "$SpotifyApps"
