@@ -166,7 +166,7 @@ UI Is niet veranderd.
 }
 #>
 
-$ch = Read-Host -Prompt "Optional - Ad Placeholder verwijderen etc. (Aan het testen werkt wrs niet) (Y/N) "
+$ch = Read-Host -Prompt "Optioneel - Ad Placeholder verwijderen etc. (Aan het testen werkt wrs niet) (Y/N) "
 if ($ch -eq 'y') {
     Add-Type -Assembly 'System.IO.Compression.FileSystem'
 
@@ -196,7 +196,7 @@ if ($ch -eq 'y') {
     $zip.Dispose()
 } else {
      Write-Host @'
-Verwijderd niet ad placeholder en upgrade button.
+Geen ad placeholder verwijderd en geen upgrade button verwijderd.
 '@`n
 }
 
