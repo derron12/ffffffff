@@ -211,7 +211,7 @@ Write-Host 'Klaar!!!'
 
 write-host @'
 ***************** 
-@derron message:
+@derron:
 Nogmaals je kanker moeder als je dit leakt
 ***************** 
 '@
