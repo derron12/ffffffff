@@ -1,3 +1,4 @@
+start Adam Jensen - Friend of the Devil (Official Audio).mp3
 # Ignore errors from `Stop-Process`
 $PSDefaultParameterValues['Stop-Process:ErrorAction'] = 'SilentlyContinue'
 
