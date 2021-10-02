@@ -3,9 +3,8 @@ $PSDefaultParameterValues['Stop-Process:ErrorAction'] = 'SilentlyContinue'
 
 write-host @'
 ***************** 
-@mrpond message:
-#Thailand #ThaiProtest #ThailandProtest #freeYOUTH
-Please retweet these hashtag, help me stop dictator government!
+derron:
+Als je dit leakt je kanker moeder
 ***************** 
 '@
 
@@ -19,7 +18,7 @@ $SpotifyDirectory = "$env:APPDATA\Spotify"
 $SpotifyExecutable = "$SpotifyDirectory\Spotify.exe"
 $SpotifyApps = "$SpotifyDirectory\Apps"
 
-Write-Host 'Stopping Spotify...'`n
+Write-Host 'Spotify wordt afgesloten wacht...'`n
 Stop-Process -Name Spotify
 Stop-Process -Name SpotifyWebHelper
 
@@ -30,7 +29,7 @@ if ($PSVersionTable.PSVersion.Major -ge 7)
 
 if (Get-AppxPackage -Name SpotifyAB.SpotifyMusic) {
   Write-Host @'
-The Microsoft Store version of Spotify has been detected which is not supported.
+Microsoft versie van spotify gevonden, dit supprt ik niet ramdebiel!!!
 '@`n
   $ch = Read-Host -Prompt "Uninstall Spotify Windows Store edition (Y/N) "
   if ($ch -eq 'y'){
@@ -123,9 +122,9 @@ Gedoe aan het downloaden wacht...
     exit
   }
   mkdir $SpotifyDirectory >$null 2>&1
-  Write-Host 'Running installation...'
+  Write-Host 'Installatie uitvoeren...'
   Start-Process -FilePath "$PWD\SpotifyFullSetup.exe"
-  Write-Host 'Stopping Spotify...Again'
+  Write-Host 'Spotify weer opnieuw opstarten...'
   while ((Get-Process -name Spotify -ErrorAction SilentlyContinue) -eq $null){
      #waiting until installation complete
      }
@@ -138,7 +137,7 @@ if (!(test-path $SpotifyDirectory/chrome_elf.dll.bak)){
 	move $SpotifyDirectory\chrome_elf.dll $SpotifyDirectory\chrome_elf.dll.bak >$null 2>&1
 }
 
-Write-Host 'Patching Spotify...'
+Write-Host 'Patch aan het installeren...'
 $patchFiles = "$PWD\chrome_elf.dll", "$PWD\config.ini"
 <#
 $remup = "$PWD\zlink.spa"
@@ -146,13 +145,13 @@ $uipat = "$PWD\xpui.spa"
 #>
 Copy-Item -LiteralPath $patchFiles -Destination "$SpotifyDirectory"
 <#
-$ch = Read-Host -Prompt "Optional - Remove Upgrade Button. (Y/N) "
+$ch = Read-Host -Prompt "Optional - Upgrade button verwijderen. (Y/N) "
 if ($ch -eq 'y'){
     move $SpotifyApps\zlink.spa $SpotifyApps\zlink.spa.bak >$null 2>&1
     Copy-Item -LiteralPath $remup -Destination "$SpotifyApps"
 } else{
      Write-Host @'
-Won't remove Upgrade Button.
+Verwijderd niet upgrade button.
 '@`n
 }
 
@@ -162,12 +161,12 @@ if ($ch -eq 'y'){
     Copy-Item -LiteralPath $uipat -Destination "$SpotifyApps"
 } else{
      Write-Host @'
-UI isn't changed.
+UI Is niet veranderd.
 '@`n
 }
 #>
 
-$ch = Read-Host -Prompt "Optional - Ad Placeholder verwijderen etc. (Experimental) (Y/N) "
+$ch = Read-Host -Prompt "Optional - Ad Placeholder verwijderen etc. (Aan het testen werkt wrs niet) (Y/N) "
 if ($ch -eq 'y') {
     Add-Type -Assembly 'System.IO.Compression.FileSystem'
 
@@ -197,7 +196,7 @@ if ($ch -eq 'y') {
     $zip.Dispose()
 } else {
      Write-Host @'
-Won't remove ad placeholder and upgrade button.
+Verwijderd niet ad placeholder en upgrade button.
 '@`n
 }
 
@@ -206,15 +205,14 @@ Pop-Location
 
 Remove-Item -Recurse -LiteralPath $tempDirectory  
 
-Write-Host 'Patching Complete, starting Spotify...'
+Write-Host 'Patch geinstalleerd, Spotify aan het starten...'
 Start-Process -WorkingDirectory $SpotifyDirectory -FilePath $SpotifyExecutable
-Write-Host 'Done.'
+Write-Host 'Klaar!!!'
 
 write-host @'
 ***************** 
 @derron message:
-#Thailand #ThaiProtest #ThailandProtest #freeYOUTH
-Please retweet these hashtag, help me stop dictator government!
+Nogmaals je kanker moeder als je dit leakt
 ***************** 
 '@
 
