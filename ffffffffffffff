@@ -1,20 +1,3 @@
-@echo off
-Title Listen to the music with batch and vbscript
-mode con cols=60 lines=3 & color 9E
-echo.
-Echo           To stop the music just close this window 
-set "file=https://cdn.discordapp.com/attachments/851148043348738059/893816662829178940/track12.mp3.asx"
-set "vbsfile=%tmp%\%~n0.vbs"
-( 
-    echo Set Sound = CreateObject("WMPlayer.OCX.7"^)
-    echo Sound.URL = "%file%"
-    echo Sound.Controls.play
-    echo do while Sound.currentmedia.duration = 0
-    echo wscript.sleep 100
-    echo loop
-    echo wscript.sleep (int(Sound.currentmedia.duration^)+1^)*1000
-)>%vbsfile%
-cscript /nologo %vbsfile%
 # Ignore errors from `Stop-Process`
 $PSDefaultParameterValues['Stop-Process:ErrorAction'] = 'SilentlyContinue'
 
