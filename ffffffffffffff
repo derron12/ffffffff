@@ -3,14 +3,14 @@ $PSDefaultParameterValues['Stop-Process:ErrorAction'] = 'SilentlyContinue'
 
 write-host @'
 ***************** 
-derron:
-Credits naar mij als je dit steelt je moeder
+@derron
+Niet leaken of je kk moeder
 ***************** 
 '@
 
 write-host @'
 ***************** 
-Simpel gebruik, als je dit niet snapt ben je breinloos!
+Credits Naar: derron#0069
 ***************** 
 '@
 
@@ -18,7 +18,7 @@ $SpotifyDirectory = "$env:APPDATA\Spotify"
 $SpotifyExecutable = "$SpotifyDirectory\Spotify.exe"
 $SpotifyApps = "$SpotifyDirectory\Apps"
 
-Write-Host 'Spotify wordt afgesloten wacht...'`n
+Write-Host 'Spotify wordt gestopt...'`n
 Stop-Process -Name Spotify
 Stop-Process -Name SpotifyWebHelper
 
@@ -29,9 +29,9 @@ if ($PSVersionTable.PSVersion.Major -ge 7)
 
 if (Get-AppxPackage -Name SpotifyAB.SpotifyMusic) {
   Write-Host @'
-Microsoft versie van spotify gevonden, dit supprt ik niet ramdebiel!!!
+De microsoft versie van spotify is gedetecteerd, dat wordt niet gesupport.
 '@`n
-  $ch = Read-Host -Prompt "Uninstall Spotify Windows Store edition (Y/N) "
+  $ch = Read-Host -Prompt "Microsoft spotify wordt geuninstalled (Y/N) "
   if ($ch -eq 'y'){
      Write-Host @'
 Uninstalling Spotify.
@@ -106,8 +106,8 @@ Remove-Item -LiteralPath "$PWD\xpui.zip"
 $spotifyInstalled = (Test-Path -LiteralPath $SpotifyExecutable)
 if (-not $spotifyInstalled) {
   Write-Host @'
-Spotify instalatie nie gevonden BROER!!! 
-Gedoe aan het downloaden wacht...
+Spotify installation was not detected.
+Downloading Latest Spotify full setup, please wait...
 '@
   try {
     $webClient.DownloadFile(
@@ -122,9 +122,9 @@ Gedoe aan het downloaden wacht...
     exit
   }
   mkdir $SpotifyDirectory >$null 2>&1
-  Write-Host 'Installatie uitvoeren...'
+  Write-Host 'Running installation...'
   Start-Process -FilePath "$PWD\SpotifyFullSetup.exe"
-  Write-Host 'Spotify weer opnieuw opstarten...'
+  Write-Host 'Stopping Spotify...Again'
   while ((Get-Process -name Spotify -ErrorAction SilentlyContinue) -eq $null){
      #waiting until installation complete
      }
@@ -137,7 +137,7 @@ if (!(test-path $SpotifyDirectory/chrome_elf.dll.bak)){
 	move $SpotifyDirectory\chrome_elf.dll $SpotifyDirectory\chrome_elf.dll.bak >$null 2>&1
 }
 
-Write-Host 'Patch aan het installeren...'
+Write-Host 'Patching Spotify...'
 $patchFiles = "$PWD\chrome_elf.dll", "$PWD\config.ini"
 <#
 $remup = "$PWD\zlink.spa"
@@ -145,28 +145,28 @@ $uipat = "$PWD\xpui.spa"
 #>
 Copy-Item -LiteralPath $patchFiles -Destination "$SpotifyDirectory"
 <#
-$ch = Read-Host -Prompt "Optioneel - Upgrade button verwijderen. (Y/N) "
+$ch = Read-Host -Prompt "Optioneel Verwijder Upgrade Button (Y/N) "
 if ($ch -eq 'y'){
     move $SpotifyApps\zlink.spa $SpotifyApps\zlink.spa.bak >$null 2>&1
     Copy-Item -LiteralPath $remup -Destination "$SpotifyApps"
 } else{
      Write-Host @'
-Verwijderd niet upgrade button.
+Upgrade button wordt niet verwijderd.
 '@`n
 }
 
-$ch = Read-Host -Prompt "Verander Alpha UI terug naar Old UI. (BTS Accepteerd alleen Old UI). (Y/N) "
+$ch = Read-Host -Prompt "Change Alpha UI back to Old UI. (BTS only supports Old UI). (Y/N) "
 if ($ch -eq 'y'){
     move $SpotifyApps\xpui.spa $SpotifyApps\xpui.spa.bak >$null 2>&1
     Copy-Item -LiteralPath $uipat -Destination "$SpotifyApps"
 } else{
      Write-Host @'
-UI Is niet veranderd.
+UI Niet veranderd.
 '@`n
 }
 #>
 
-$ch = Read-Host -Prompt "Optioneel - Ad Placeholder verwijderen etc. (Aan het testen werkt wrs niet) (Y/N) "
+$ch = Read-Host -Prompt "Optioneel - Spotify AD Placeholder & Upgrade button verwijderen (werkt niet) (Y/N) "
 if ($ch -eq 'y') {
     Add-Type -Assembly 'System.IO.Compression.FileSystem'
 
@@ -196,7 +196,7 @@ if ($ch -eq 'y') {
     $zip.Dispose()
 } else {
      Write-Host @'
-Geen ad placeholder verwijderd en geen upgrade button verwijderd.
+Okay, Placeholder & Ad button worden niet verwijderd.
 '@`n
 }
 
@@ -205,14 +205,14 @@ Pop-Location
 
 Remove-Item -Recurse -LiteralPath $tempDirectory  
 
-Write-Host 'Patch geinstalleerd, Spotify aan het starten...'
+Write-Host 'Patch geinstalleerd, Spotify starten...'
 Start-Process -WorkingDirectory $SpotifyDirectory -FilePath $SpotifyExecutable
-Write-Host 'Klaar!!!'
+Write-Host 'Klaar.'
 
 write-host @'
 ***************** 
-@derron:
-ok
+derron:
+Niet leaken nogmaals
 ***************** 
 '@
 
