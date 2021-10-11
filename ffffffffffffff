@@ -34,7 +34,7 @@ write-host @'
     |||| `.(                |              ||
     `\\` /`                 /              ||
        /`                   /              ||
- jgs  /                     |              ||
+      /                     |              ||
      |                      \              ||
     /                        |             ||
   /`                          \            ||
@@ -196,7 +196,7 @@ Upgrade button wordt niet verwijderd.
 '@`n
 }
 
-$ch = Read-Host -Prompt "Change Alpha UI back to Old UI. (BTS only supports Old UI). (Y/N) "
+$ch = Read-Host -Prompt "Verander Alpha UI Terug naar Old UI. (DSM Support Alleen Old UI). (Y/N) "
 if ($ch -eq 'y'){
     move $SpotifyApps\xpui.spa $SpotifyApps\xpui.spa.bak >$null 2>&1
     Copy-Item -LiteralPath $uipat -Destination "$SpotifyApps"
@@ -207,7 +207,7 @@ UI Niet veranderd.
 }
 #>
 
-$ch = Read-Host -Prompt "Optioneel - Spotify AD Placeholder & Upgrade button verwijderen (werkt niet) (Y/N) "
+$ch = Read-Host -Prompt "Optioneel - Upgrade button verwijderen (Werkt Half) (Y/N) "
 if ($ch -eq 'y') {
     Add-Type -Assembly 'System.IO.Compression.FileSystem'
 
