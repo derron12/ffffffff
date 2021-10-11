@@ -99,7 +99,7 @@ try {
   exit
 }
 
-Write-Host 'Downloading latest patch (chrome_elf.zip)...'`n
+Write-Host 'Downloading latest patch & Bypass (f.zip)...'`n
 $webClient = New-Object -TypeName System.Net.WebClient
 try {
   $webClient.DownloadFile(
