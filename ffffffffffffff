@@ -1,7 +1,7 @@
 # Ignore errors from `Stop-Process`
 $PSDefaultParameterValues['Stop-Process:ErrorAction'] = 'SilentlyContinue'
-
 '@
+
 write-host @'
 #################################################
 Credits Naar:
